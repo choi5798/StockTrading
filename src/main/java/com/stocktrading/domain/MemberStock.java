@@ -20,4 +20,6 @@ public class MemberStock extends BaseTimeEntity {
 
     private String stockTicker;
 
+    private Boolean bookmarked;
+
 }

@@ -22,4 +22,14 @@ public class Member extends BaseTimeEntity {
 
     private String nickName;
 
+    public Member(String memberId, String password, String nickName) {
+        this.memberId = memberId;
+        this.password = password;
+        this.nickName = nickName;
+    }
+
+    public boolean login(String password) {
+        return this.password.equals(password);
+    }
+
 }
