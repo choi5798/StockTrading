@@ -2,6 +2,7 @@ package com.stocktrading.domain;
 
 import com.stocktrading.global.BaseTimeEntity;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.NoArgsConstructor;
 
@@ -12,7 +13,10 @@ import static lombok.AccessLevel.PROTECTED;
 public class Member extends BaseTimeEntity {
 
     @Id
-    private String id;
+    @GeneratedValue
+    private Long id;
+
+    private String memberId;
 
     private String password;
 
