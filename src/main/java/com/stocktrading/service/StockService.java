@@ -2,6 +2,10 @@ package com.stocktrading.service;
 
 import com.stocktrading.repository.StockRepository;
 import org.springframework.stereotype.Service;
+import yahoofinance.Stock;
+import yahoofinance.YahooFinance;
+
+import java.io.IOException;
 
 @Service
 public class StockService {
@@ -10,6 +14,15 @@ public class StockService {
 
     public StockService(StockRepository stockRepository) {
         this.stockRepository = stockRepository;
+    }
+
+    public void findStock(String stockTicker) {
+        try {
+            Stock stock = YahooFinance.get(stockTicker);
+            stock.print();
+        } catch (IOException e) {
+            throw new IllegalStateException("주식 정보를 가져오는 데 실패했음.");
+        }
     }
 
 }
