@@ -1,6 +1,6 @@
-package com.stocktrading.repository;
+package com.stocktrading.member.repository;
 
-import com.stocktrading.domain.Member;
+import com.stocktrading.member.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

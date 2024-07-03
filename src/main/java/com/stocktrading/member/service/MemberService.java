@@ -1,7 +1,7 @@
-package com.stocktrading.service;
+package com.stocktrading.member.service;
 
-import com.stocktrading.domain.Member;
-import com.stocktrading.repository.MemberRepository;
+import com.stocktrading.member.domain.Member;
+import com.stocktrading.member.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 
 @Service

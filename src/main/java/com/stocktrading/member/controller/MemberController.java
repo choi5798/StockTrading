@@ -1,8 +1,8 @@
-package com.stocktrading.controller;
+package com.stocktrading.member.controller;
 
-import com.stocktrading.controller.dto.MemberLoginRequest;
-import com.stocktrading.controller.dto.MemberSignUpRequest;
-import com.stocktrading.service.MemberService;
+import com.stocktrading.member.service.MemberService;
+import com.stocktrading.member.dto.MemberLoginRequest;
+import com.stocktrading.member.dto.MemberSignUpRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

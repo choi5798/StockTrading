@@ -1,4 +1,4 @@
-package com.stocktrading.controller.dto;
+package com.stocktrading.member.dto;
 
 public record MemberLoginRequest(
         String id,

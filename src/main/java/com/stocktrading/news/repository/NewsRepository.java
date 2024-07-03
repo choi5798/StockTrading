@@ -1,7 +1,7 @@
-package com.stocktrading.repository;
+package com.stocktrading.news.repository;
 
 
-import com.stocktrading.domain.News;
+import com.stocktrading.news.domain.News;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

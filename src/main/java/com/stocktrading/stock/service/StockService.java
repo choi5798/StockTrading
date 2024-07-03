@@ -1,6 +1,6 @@
-package com.stocktrading.service;
+package com.stocktrading.stock.service;
 
-import com.stocktrading.repository.StockRepository;
+import com.stocktrading.stock.repository.StockRepository;
 import org.springframework.stereotype.Service;
 import yahoofinance.Stock;
 import yahoofinance.YahooFinance;

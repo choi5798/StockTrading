@@ -1,6 +1,6 @@
-package com.stocktrading.service;
+package com.stocktrading.news.service;
 
-import com.stocktrading.repository.NewsRepository;
+import com.stocktrading.news.repository.NewsRepository;
 import org.springframework.stereotype.Service;
 
 @Service

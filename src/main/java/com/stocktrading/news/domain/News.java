@@ -1,4 +1,4 @@
-package com.stocktrading.domain;
+package com.stocktrading.news.domain;
 
 import com.stocktrading.global.BaseTimeEntity;
 import jakarta.persistence.Entity;
