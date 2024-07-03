@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 import static lombok.AccessLevel.PROTECTED;
 
 @Entity
@@ -15,6 +17,8 @@ public class News extends BaseTimeEntity {
     @Id
     @GeneratedValue
     private Long id;
+
+    private UUID uuid;
 
     private String title;
 
