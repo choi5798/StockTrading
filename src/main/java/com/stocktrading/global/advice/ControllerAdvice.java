@@ -17,4 +17,9 @@ public class ControllerAdvice {
         return ResponseEntity.badRequest().body(e.getMessage());
     }
 
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<String> exceptionHandler(RuntimeException e) {
+        return ResponseEntity.badRequest().body(e.getMessage());
+    }
+
 }
