@@ -22,4 +22,6 @@ public class Stock extends BaseTimeEntity {
 
     private Long price;
 
+    private String imageUrl;
+
 }

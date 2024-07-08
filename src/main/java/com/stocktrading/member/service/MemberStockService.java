@@ -19,7 +19,7 @@ public class MemberStockService {
         this.memberStockRepository = memberStockRepository;
     }
 
-    public void bookmark(String memberId, String stockTicker) {
+    public void bookmark(String stockTicker) {
         Optional<MemberStock> memberStock = memberStockRepository.findByStockTickerAndMemberId(stockTicker, memberId);
         if (memberStock.isPresent()) {
             MemberStock newMemberStock = memberStock.get().bookmark();

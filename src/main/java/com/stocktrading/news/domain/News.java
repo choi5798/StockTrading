@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import static lombok.AccessLevel.PROTECTED;
@@ -22,8 +23,10 @@ public class News extends BaseTimeEntity {
 
     private String title;
 
-    private String publisher;
+    private String site;
 
-    private String link;
+    private String url;
+
+    private LocalDateTime publishedDate;
 
 }
