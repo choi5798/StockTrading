@@ -1,8 +1,11 @@
 package com.stocktrading.member.controller;
 
+import com.stocktrading.global.jwt.JwtToken;
 import com.stocktrading.member.dto.MemberLoginRequest;
 import com.stocktrading.member.dto.MemberSignUpRequest;
 import com.stocktrading.member.service.MemberService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/auth")
 public class MemberController {
 
+    private final Logger log = LoggerFactory.getLogger(MemberController.class);
+
     private final MemberService memberService;
 
     public MemberController(MemberService memberService) {
@@ -21,21 +26,18 @@ public class MemberController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> signUp(@RequestBody MemberSignUpRequest request) {
-        boolean isSignUpSuccess = memberService.signUp(request.id(), request.password(), request.nickname());
-        if (isSignUpSuccess) {
-            return ResponseEntity.ok().build();
-        }
-        return ResponseEntity.badRequest().build();
+    public void signUp(@RequestBody MemberSignUpRequest request) {
+        memberService.signUp(request.username(), request.password(), request.nickname());
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Void> login(@RequestBody MemberLoginRequest request) {
-        boolean isLoginSuccess = memberService.login(request.id(), request.password());
-        if (isLoginSuccess) {
-            return ResponseEntity.ok().build();
-        }
-        return ResponseEntity.badRequest().build();
+    public JwtToken login(@RequestBody MemberLoginRequest request) {
+        String username = request.username();
+        String password = request.password();
+        JwtToken jwtToken = memberService.login(username, password);
+        log.info("request username = {}, password = {}", username, password);
+        log.info("jwtToken accessToken = {}, refreshToken = {}", jwtToken.accessToken(), jwtToken.refreshToken());
+        return jwtToken;
     }
 
     @DeleteMapping
