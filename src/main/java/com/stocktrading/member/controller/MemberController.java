@@ -45,4 +45,9 @@ public class MemberController {
         return ResponseEntity.ok().build();
     }
 
+    @PostMapping("/test")
+    public String test() {
+        return "로그인 테스트 성공!";
+    }
+
 }
