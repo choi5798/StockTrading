@@ -1,6 +1,7 @@
 package com.stocktrading.news.controller.dto;
 
 import com.stocktrading.news.domain.News;
+import lombok.Builder;
 
 import java.time.LocalDateTime;
 
@@ -12,6 +13,10 @@ public record NewsInfo(
         String time,
         String tickers
 ) {
+
+    @Builder
+    public NewsInfo {
+    }
 
     public News toEntity() {
         String replaced = time.replace(" ", "T");

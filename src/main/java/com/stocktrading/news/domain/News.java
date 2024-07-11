@@ -1,6 +1,7 @@
 package com.stocktrading.news.domain;
 
 import com.stocktrading.global.BaseTimeEntity;
+import com.stocktrading.news.controller.dto.NewsInfo;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -33,6 +34,7 @@ public class News extends BaseTimeEntity {
 
     private String faviconUrl;
 
+    @Getter
     private LocalDateTime time;
 
     @Getter
@@ -46,6 +48,17 @@ public class News extends BaseTimeEntity {
         this.faviconUrl = faviconUrl;
         this.time = time;
         this.ticker = ticker;
+    }
+
+    public NewsInfo toDto() {
+        return NewsInfo.builder()
+                .id(serialNumber)
+                .title(title)
+                .url(url)
+                .favicon_url(faviconUrl)
+                .time(time.toString())
+                .tickers(ticker)
+                .build();
     }
 
 }
