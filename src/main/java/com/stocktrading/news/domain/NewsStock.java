@@ -20,4 +20,9 @@ public class NewsStock extends BaseTimeEntity {
 
     private Long newsId;
 
+    public NewsStock(String stockTicker, Long newsId) {
+        this.stockTicker = stockTicker;
+        this.newsId = newsId;
+    }
+
 }
