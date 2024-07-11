@@ -1,10 +1,11 @@
 package com.stocktrading.member.controller.dto;
 
+import com.stocktrading.stock.controller.dto.StockInfo;
+
+import java.util.List;
+
 public record GetBookmarkedResponse(
-        String stockTicker,
-        String stockName,
-        String imageUrl
-        // 뉴스 리스트 추가해야 함
+        List<StockInfo> bookmarked
 ) {
 
 }

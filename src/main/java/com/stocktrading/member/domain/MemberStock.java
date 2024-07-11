@@ -17,20 +17,21 @@ public class MemberStock extends BaseTimeEntity {
     @GeneratedValue
     private Long id;
 
-    private String memberId;
+    private Long memberId;
 
+    @Getter
     private String stockTicker;
 
     @Getter
     private boolean bookmarked;
 
-    public MemberStock(String memberId, String stockTicker, boolean bookmarked) {
+    public MemberStock(Long memberId, String stockTicker, boolean bookmarked) {
         this.memberId = memberId;
         this.stockTicker = stockTicker;
         this.bookmarked = bookmarked;
     }
 
-    public MemberStock(Long id, String memberId, String stockTicker, boolean bookmarked) {
+    public MemberStock(Long id, Long memberId, String stockTicker, boolean bookmarked) {
         this.id = id;
         this.memberId = memberId;
         this.stockTicker = stockTicker;
@@ -42,7 +43,16 @@ public class MemberStock extends BaseTimeEntity {
                 this.id,
                 this.memberId,
                 this.stockTicker,
-                !this.bookmarked
+                true
+        );
+    }
+
+    public MemberStock unBookmark() {
+        return new MemberStock(
+                this.id,
+                this.memberId,
+                this.stockTicker,
+                false
         );
     }
 

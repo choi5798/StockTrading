@@ -114,4 +114,17 @@ public class JwtProvider {
         return false;
     }
 
+    public String getUsername(String accessToken) {
+        try {
+            return Jwts.parser()
+                    .verifyWith((SecretKey) key)
+                    .build()
+                    .parseSignedClaims(accessToken)
+                    .getPayload()
+                    .getSubject();
+        } catch (ExpiredJwtException e) {
+            return null;
+        }
+    }
+
 }
